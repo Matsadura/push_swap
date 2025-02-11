@@ -23,8 +23,7 @@ static void	is_greater_than_intmax(char **args)
 	i = 0;
 	while (args[i] != NULL)
 	{
-		printf("args[i]: %ld\n", ft_atol(args[i]));
-		if (ft_atol(args[i]) > INT_MAX)
+		if (ft_atol(args[i]) > INT_MAX || ft_atol(args[i]) < INT_MIN)
 		{
 			ft_dprintf(STDERR, "Error\n");
 			exit(EXIT_FAILURE);
@@ -68,6 +67,8 @@ static void	is_numerical(char **args)
 	while (args[i] != NULL)
 	{
 		j = 0;
+		if (args[i][j] == '-' || args[i][j] == '+')
+			j++;
 		while (args[i][j] != '\0')
 		{
 			if (ft_isdigit((int)args[i][j]) == FALSE)
@@ -122,7 +123,8 @@ char	**parse_args(int ac, char **av)
 	char	**args;
 
 	args = join_and_split(ac, av);
-	if (args == NULL)
+	//printf("{{%s}\n", args[0]);
+	if (args == NULL || *args == NULL)
 	{
 		ft_dprintf(STDERR, "Error\n");
 		exit(EXIT_FAILURE);
