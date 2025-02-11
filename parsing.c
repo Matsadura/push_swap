@@ -126,6 +126,7 @@ char	**parse_args(int ac, char **av)
 	//printf("{{%s}\n", args[0]);
 	if (args == NULL || *args == NULL)
 	{
+		free(args);
 		ft_dprintf(STDERR, "Error\n");
 		exit(EXIT_FAILURE);
 	}
