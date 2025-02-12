@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
 
 /**
@@ -26,6 +27,7 @@ static void	is_greater_than_intmax(char **args)
 		if (ft_atol(args[i]) > INT_MAX || ft_atol(args[i]) < INT_MIN)
 		{
 			ft_dprintf(STDERR, "Error\n");
+			ft_free2d(args);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -97,8 +99,14 @@ static char	**join_and_split(int ac, char **av)
 
 	i = 1;
 	tmp = NULL;
-	while (i <= ac)
+	while (i < ac)
 	{
+		if (av[i] == NULL || av[i][0] == '\0'
+		|| is_only_space(av[i]) == TRUE)
+		{
+			ft_dprintf(STDERR, "Error\n");
+			exit(EXIT_FAILURE);
+		}
 		tmp = ft_strjoin_gnl(tmp, av[i]);
 		tmp = ft_strjoin_gnl(tmp, " ");
 		if (tmp == NULL)
