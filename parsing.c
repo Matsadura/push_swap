@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:27:01 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/13 10:51:26 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/13 15:03:14 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,7 @@ static char	**join_and_split(int ac, char **av)
 	if (tmp == NULL)
 		return (NULL);
 	args = ft_split(tmp, ' ');
-	free(tmp);
-	return (args);
+	return (free(tmp), args);
 }
 
 /**
@@ -134,10 +133,9 @@ char	**parse_args(int ac, char **av)
 	char	**args;
 
 	args = join_and_split(ac, av);
-	//printf("{{%s}\n", args[0]);
 	if (args == NULL || *args == NULL)
 	{
-		ft_free2d(args);
+		free(args);
 		ft_dprintf(STDERR, "Error\n");
 		exit(EXIT_FAILURE);
 	}

@@ -4,9 +4,7 @@ int	main(int ac, char **av)
 {
 	char **args;
 	t_stack stackA;
-//	t_stack stackB;
-
-//	printf("%d\n", ft_atoi("0000000001"));
+	t_stack stackB;
 
 	if (ac > 1)
 	{
@@ -18,17 +16,25 @@ int	main(int ac, char **av)
 			i++;
 		}
 		fill_stack(&stackA, args, 'a');
-	//	fill_stack(&stackB, args, 'b');
-	//	print_stack(stackA);
-	//	printf("StackA size: %d\n", stackA.size);
-	//	print_stack(stackB);
-	//	printf("StackB size: %d\n", stackB.size);
-	//	ss(&stackA, &stackB);
+		stackB.top = NULL;
+		stackB.size = 0;
+		stackB.name = 'b';
+		//fill_stack(&stackB, args, 'a');
+		//fill_stack(&stackB, (char *[]){"9", "8", "7", NULL}, 'b');
+		pb(&stackA, &stackB);
+		pb(&stackA, &stackB);
+		//rr(&stackA, &stackB);
+		rrr(&stackA, &stackB);
 		print_stack(stackA);
+		printf("StackA size: %d\n", stackA.size);
+		print_stack(stackB);
+		printf("StackB size: %d\n", stackB.size);
+	//	ss(&stackA, &stackB);
+	//	print_stack(stackA);
 	//	print_stack(stackB);
 		free_stack(stackA);
+		free_stack(stackB);
 		ft_free2d(args);
-	//	free_stack(stackB);
 	}
 	return (0);
 }

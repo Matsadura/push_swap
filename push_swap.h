@@ -40,11 +40,24 @@ int		is_only_space(char *arr);
 void	fill_stack(t_stack *stack, char **args, char name);
 void	print_stack(t_stack stack);
 void	free_stack(t_stack stack);
+void	add_back(t_stack *stack, t_node *node);
+void	add_front(t_stack *stack, t_node *node);
+t_node	*pop(t_stack *stack);
+void	rotate(t_stack *stack, char name);
+void	swap(t_stack *stack, char name);
+void	reverse_rotate(t_stack *stack, char name);
 
 /* Stack Operations */
-void	swap(t_stack *stack, char name);
 void	sa(t_stack *stack, int alert);
 void	sb(t_stack *stack, int alert);
 void	ss(t_stack *stackA, t_stack *stackB);
+void	pa(t_stack *stackA, t_stack *stackB);
+void	pb(t_stack *stackA, t_stack *stackB);
+void	ra(t_stack *stack, int alert);
+void	rb(t_stack *stack, int alert);
+void	rr(t_stack *stackA, t_stack *stackB);
+void	rra(t_stack *stack, int alert);
+void	rrb(t_stack *stack, int alert);
+void	rrr(t_stack *stackA, t_stack *stackB);
 
 #endif /* PUSH_SWAP_H */

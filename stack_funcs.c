@@ -39,6 +39,15 @@ void	add_back(t_stack *stack, t_node *new)
 	stack->size++;
 }
 
+void	add_front(t_stack *stack, t_node *new)
+{
+	if (new == NULL)
+		return ;
+	new->next = stack->top;
+	stack->top = new;
+	stack->size++;
+}
+
 /**
  *
  */
