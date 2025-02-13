@@ -23,8 +23,9 @@ int	main(int ac, char **av)
 		//fill_stack(&stackB, (char *[]){"9", "8", "7", NULL}, 'b');
 		pb(&stackA, &stackB);
 		pb(&stackA, &stackB);
+		pb(&stackA, &stackB);
 		//rr(&stackA, &stackB);
-		rrr(&stackA, &stackB);
+		//rrr(&stackA, &stackB);
 		print_stack(stackA);
 		printf("StackA size: %d\n", stackA.size);
 		print_stack(stackB);

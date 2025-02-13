@@ -38,6 +38,8 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		result = result * 10 + str[i] - 48;
+		if (result < INT_MIN || result > INT_MAX)
+			return ((size_t)INT_MAX + 1);
 		i++;
 	}
 	return (result * sign);
