@@ -39,4 +39,5 @@ void	rrr(t_stack *stackA, t_stack *stackB)
 {
 	rra(stackA, FALSE);
 	rrb(stackB, FALSE);
+	ft_printf("rrr\n");
 }
