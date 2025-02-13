@@ -6,11 +6,10 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:27:01 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/11 19:09:34 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/13 10:51:26 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 
 /**
@@ -49,6 +48,7 @@ static void	is_duplicate(char **args)
 		j = i + 1;
 		if (args[j] != NULL && ft_strcmp(args[i], args[j]) == 0)
 		{
+			ft_free2d(args);
 			ft_dprintf(STDERR, "Error\n");
 			exit(EXIT_FAILURE);
 		}
@@ -69,7 +69,9 @@ static void	is_numerical(char **args)
 	while (args[i] != NULL)
 	{
 		j = 0;
-		if (args[i][j] == '-' || args[i][j] == '+')
+		if ((args[i][j] == '-' || args[i][j] == '+')
+		&& (args[i][j + 1] != '\0'
+			&& ft_isdigit((int)args[i][j + 1]) == TRUE))
 			j++;
 		while (args[i][j] != '\0')
 		{
@@ -105,6 +107,7 @@ static char	**join_and_split(int ac, char **av)
 		|| is_only_space(av[i]) == TRUE)
 		{
 			ft_dprintf(STDERR, "Error\n");
+			free(tmp);
 			exit(EXIT_FAILURE);
 		}
 		tmp = ft_strjoin_gnl(tmp, av[i]);
@@ -134,7 +137,7 @@ char	**parse_args(int ac, char **av)
 	//printf("{{%s}\n", args[0]);
 	if (args == NULL || *args == NULL)
 	{
-		free(args);
+		ft_free2d(args);
 		ft_dprintf(STDERR, "Error\n");
 		exit(EXIT_FAILURE);
 	}

@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:25:35 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/11 17:25:36 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/13 12:01:23 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,30 @@
 
 typedef struct s_node
 {
-	int		value;
+	int				value;
 	struct s_node	*next;
-} t_node;
+}	t_node;
 
 typedef struct s_stack
 {
 	t_node	*top;
-	int	size;
+	int		size;
 	char	name;
-} t_stack;
+}	t_stack;
 
 /* Parsing */
 char	**parse_args(int ac, char **av);
-int	is_only_space(char *arr);
+int		is_only_space(char *arr);
 
-/* Stack */
-void	fill_stack(t_stack *stack, char **args);
+/* Stack Functions */
+void	fill_stack(t_stack *stack, char **args, char name);
 void	print_stack(t_stack stack);
 void	free_stack(t_stack stack);
+
+/* Stack Operations */
+void	swap(t_stack *stack, char name);
+void	sa(t_stack *stack, int alert);
+void	sb(t_stack *stack, int alert);
+void	ss(t_stack *stackA, t_stack *stackB);
 
 #endif /* PUSH_SWAP_H */
