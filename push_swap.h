@@ -69,5 +69,6 @@ void	sort_small_stack(t_stack *stackA, t_stack *stackB);
 void	only_2(t_stack *stackA);
 void	only_3(t_stack *stackA);
 void	only_4(t_stack *stackA, t_stack *stackB);
+void	only_5(t_stack *stackA, t_stack *stackB);
 
 #endif /* PUSH_SWAP_H */

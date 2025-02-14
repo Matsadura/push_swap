@@ -36,11 +36,11 @@ int	main(int ac, char **av)
 	//	ss(&stackA, &stackB);
 	//	print_stack(stackB);
 		sort_small_stack(&stackA, &stackB);
-		print_stack(stackA);
-		if (is_sorted(&stackA) == TRUE)
-			ft_printf("Sorted\n");
-		else
-			ft_printf("Not sorted\n");
+	//	print_stack(stackA);
+	//	if (is_sorted(&stackA) == TRUE)
+	//		ft_printf("Sorted\n");
+	//	else
+	//		ft_printf("Not sorted\n");
 		free_stack(stackA);
 		free_stack(stackB);
 		ft_free2d(args);

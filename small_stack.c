@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:34:22 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/14 10:34:31 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/14 14:16:35 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@
  */
 int	is_sorted(t_stack *stack)
 {
-	int		min;
 	t_node	*tmp;
 
 	tmp = stack->top;
-	min = tmp->value;
-	while (tmp != NULL)
+	while (tmp->next != NULL)
 	{
-		if (min > tmp->value)
+		if (tmp->value > tmp->next->value)
 			return (FALSE);
 		tmp = tmp->next;
 	}
@@ -70,72 +68,6 @@ void	sort_small_stack(t_stack *stackA, t_stack *stackB)
 		only_3(stackA);
 	else if (stackA->size == 4)
 		only_4(stackA, stackB);
+	else if (stackA->size == 5)
+		only_5(stackA, stackB);
 }
-
-/**
- *
- */
-void	only_2(t_stack *stack)
-{
-	if (stack->top->value > stack->top->next->value
-		&& stack->name == 'a')
-		sa(stack, TRUE);
-	else if (stack->top->value > stack->top->next->value
-		&& stack->name == 'b')
-		sb(stack, TRUE);
-}
-
-/**
- *
- */
-void	only_3(t_stack *stackA)
-{
-	int	a;
-	int	b;
-	int	c;
-
-	a = stackA->top->value;
-	b = stackA->top->next->value;
-	c = stackA->top->next->next->value;
-	if (a > b && b > c && a > c)
-	{
-		ra(stackA, TRUE);
-		sa(stackA, TRUE);
-	}
-	else if (a > b && b < c && a < c)
-		sa(stackA, TRUE);
-	else if (a > b && b < c && a > c)
-		ra(stackA, TRUE);
-	else if (a < b && b > c && a < c)
-	{
-		rra(stackA, TRUE);
-		sa(stackA, TRUE);
-	}
-	else if (a < b && b > c && a > c)
-		rra(stackA, TRUE);
-}
-
-/**
- *
- */
-void	only_4(t_stack *stackA, t_stack *stackB)
-{
-	while (find_min_index(stackA, stackB) != 1)
-	{
-		if (find_min_index(stackA, stackB) > 2)
-			rra(stackA, TRUE);
-		else if (find_min_index(stackA, stackB) < 3)
-			ra(stackA, TRUE);
-	}
-	pb(stackA, stackB);
-	only_3(stackA);
-	pa(stackA, stackB);
-}
-
-/**
- *
- */
-//void	only_5(t_stack *stackA, t_stack *stackB)
-//{
-//	
-//}
