@@ -45,13 +45,16 @@ static void	is_duplicate(char **args)
 	i = 0;
 	while (args[i] != NULL)
 	{
-		j = 0;
-		if (args[j] != NULL && ft_strcmp(args[i], args[j]) == 0
-			&& i != j)
+		j = i + 1;
+		while (args[j] != NULL)
 		{
-			ft_free2d(args);
-			ft_dprintf(STDERR, "Error\n");
-			exit(EXIT_FAILURE);
+			if (ft_strcmp(args[i], args[j]) == 0)
+			{
+				ft_free2d(args);
+				ft_dprintf(STDERR, "Error\n");
+				exit(EXIT_FAILURE);
+			}
+			j++;
 		}
 		i++;
 	}

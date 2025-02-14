@@ -1,2 +1,5 @@
+push_swap
+*.swp
 a.out
 .vscode
+*.bash
