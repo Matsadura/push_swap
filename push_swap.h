@@ -43,8 +43,8 @@ void	free_stack(t_stack stack);
 void	add_back(t_stack *stack, t_node *node);
 void	add_front(t_stack *stack, t_node *node);
 t_node	*pop(t_stack *stack);
-void	rotate(t_stack *stack, char name);
 void	swap(t_stack *stack, char name);
+void	rotate(t_stack *stack, char name);
 void	reverse_rotate(t_stack *stack, char name);
 
 /* Stack Operations */
@@ -59,5 +59,15 @@ void	rr(t_stack *stackA, t_stack *stackB);
 void	rra(t_stack *stack, int alert);
 void	rrb(t_stack *stack, int alert);
 void	rrr(t_stack *stackA, t_stack *stackB);
+
+/**/
+int		is_sorted(t_stack *stack);
+int		find_min_index(t_stack *stackA, t_stack *stackB);
+
+/* Small Stack Functions */
+void	sort_small_stack(t_stack *stackA, t_stack *stackB);
+void	only_2(t_stack *stackA);
+void	only_3(t_stack *stackA);
+void	only_4(t_stack *stackA, t_stack *stackB);
 
 #endif /* PUSH_SWAP_H */
