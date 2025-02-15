@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:25:35 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/14 15:09:36 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/15 21:11:27 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,16 @@ t_node	*pop(t_stack *stack);
 void	swap(t_stack *stack, char name);
 void	rotate(t_stack *stack, char name);
 void	reverse_rotate(t_stack *stack, char name);
+void	sort_stacks(t_stack *stackA, t_stack *stackB);
+int	find_max_index(t_node *top);
+int	find_position(int max, t_stack *stackB);
+
+/* Large stack functions */
 void	fill_stack_b(t_stack *stackA, t_stack *stackB);
 void	position_element_in_b(t_stack *stackB);
 void	below_line_init(t_stack *stackB);
+void	sort_b_to_a(t_stack *stackA, t_stack *stackB, int len);
+void	sort_large_stack(t_stack *stackA, t_stack *stackB);
 
 /* Array functions */
 int	*stack_to_arr(t_stack *stack);

@@ -35,6 +35,9 @@ void	fill_stack_b(t_stack *stackA, t_stack *stackB)
 	int		chunk;
 	t_node	*cur;
 
+	stackB->top = NULL;
+	stackB->size = 0;
+	stackB->name = 'b';
 	chunk = chunk_size(stackA);
 	while (lst_len(stackA->top) != 0)
 	{
@@ -82,10 +85,10 @@ void	below_line_init(t_stack *stackB)
 	cur = stackB->top;
 	while (cur != NULL)
 	{
-		if (cur->position_b >= len / 2)
-			cur->below_line = TRUE;
-		else
+		if (cur->position_b < len / 2)
 			cur->below_line = FALSE;
+		else
+			cur->below_line = TRUE;
 		cur = cur->next;
 	}
 }
@@ -93,19 +96,23 @@ void	below_line_init(t_stack *stackB)
 /**
  *
  */
-void	sort_b_to_a(t_stack *stackA, t_stack *stackB)
+void	sort_b_to_a(t_stack *stackA, t_stack *stackB, int len)
 {
-	t_node	*cur;
-	int		size;
+	int	max;
 
-	size = lst_len(stackB->top);
-	cur = stackB->top;
-	while (cur->index != size - 1)
+	(void)stackA;
+	max = find_max_index(stackB->top);
+	//while (stackB->top->index != lst_len(stackB->top) - 1)
+	while (stackB->top->index != len - 1)
 	{
-		if (cur->below_line == TRUE)
+		//below_line_init(stackB);
+		//printf("index: %d\n", stackB->top->index);
+		//if (stackB->top->below_line == TRUE)
+		if (find_position(max, stackB) >= lst_len(stackB->top) / 2)
 			rrb(stackB, TRUE);
 		else
 			rb(stackB, TRUE);
+		//cur = cur->next;
 	}
 	pa(stackA, stackB);
 }
