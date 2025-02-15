@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -ggdb
-SRC = ./mandatory/main.c ./mandatory/only_2345.c ./mandatory/parsing2.c ./mandatory/parsing.c ./mandatory/small_stack.c ./mandatory/stack_funcs.c ./mandatory/stack_op1.c ./mandatory/stack_op2.c ./mandatory/stack_op3.c ./mandatory/stack_op4.c
+SRC = ./mandatory/main.c ./mandatory/only_2345.c ./mandatory/parsing2.c ./mandatory/parsing.c ./mandatory/small_stack.c ./mandatory/stack_funcs.c ./mandatory/stack_op1.c ./mandatory/stack_op2.c ./mandatory/stack_op3.c ./mandatory/stack_op4.c ./mandatory/stack_funcs2.c ./mandatory/stack_algo0.c ./mandatory/stack_algo1.c
 NAME = push_swap
 LIBFT = libft/libft.a
 OBJECT = $(SRC:.c=.o)

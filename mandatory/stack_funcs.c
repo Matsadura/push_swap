@@ -66,6 +66,9 @@ void	fill_stack(t_stack *stack, char **args, char name)
 		if (new == NULL)
 			return ;
 		new->value = ft_atoi(args[i]);
+		new->index = 0;
+		new->position_b = 0;
+		new->below_line = 0;
 		new->next = NULL;
 		add_back(stack, new);
 		i++;
@@ -76,7 +79,10 @@ void	print_stack(t_stack stack)
 {
 	while (stack.top != NULL )
 	{
-		ft_printf("(%d)\n", stack.top->value);
+		ft_printf("(%d) ", stack.top->value);
+		ft_printf("index-> %d ", stack.top->index);
+		ft_printf("pos-> %d ", stack.top->position_b);
+		ft_printf("bl-> %d\n", stack.top->below_line);
 		stack.top = stack.top->next;
 	}
 }

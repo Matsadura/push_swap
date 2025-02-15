@@ -22,6 +22,9 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				position_b;
+	int				below_line;
 	struct s_node	*next;
 }	t_node;
 
@@ -37,6 +40,7 @@ char	**parse_args(int ac, char **av);
 int		is_only_space(char *arr);
 
 /* Stack Functions */
+int	lst_len(t_node *lst);
 void	fill_stack(t_stack *stack, char **args, char name);
 void	print_stack(t_stack stack);
 void	free_stack(t_stack stack);
@@ -46,6 +50,14 @@ t_node	*pop(t_stack *stack);
 void	swap(t_stack *stack, char name);
 void	rotate(t_stack *stack, char name);
 void	reverse_rotate(t_stack *stack, char name);
+void	fill_stack_b(t_stack *stackA, t_stack *stackB);
+void	position_element_in_b(t_stack *stackB);
+void	below_line_init(t_stack *stackB);
+
+/* Array functions */
+int	*stack_to_arr(t_stack *stack);
+int	*sort_array(int *arr, int size);
+void	index_element_in_arr(int *arr, t_node *top);
 
 /* Stack Operations */
 void	sa(t_stack *stack, int alert);
