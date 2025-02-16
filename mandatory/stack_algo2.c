@@ -67,7 +67,7 @@ void	sort_stacks(t_stack *stackA, t_stack *stackB)
 		only_4(stackA, stackB);
 	else if (size_a == 5)
 		only_5(stackA, stackB);
-	else
+	else if (size_a > 5)
 		sort_large_stack(stackA, stackB);
 }
 

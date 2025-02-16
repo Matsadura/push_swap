@@ -35,9 +35,6 @@ void	fill_stack_b(t_stack *stackA, t_stack *stackB)
 	int		chunk;
 	t_node	*cur;
 
-	stackB->top = NULL;
-	stackB->size = 0;
-	stackB->name = 'b';
 	chunk = chunk_size(stackA);
 	while (lst_len(stackA->top) != 0)
 	{
