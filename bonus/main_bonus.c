@@ -39,7 +39,10 @@ int	main(int ac, char **av)
 		if (all_valid_ops(ops) == TRUE)
 			exec_ops(&stack_a, &stack_b, ops);
 		else
+		{
+			ft_printf("Error\n");
 			cleanup(stack_a, stack_b, args, ops);
+		}
 		if (is_sorted(&stack_a) == TRUE && stack_b.size == 0)
 			ft_printf("OK\n");
 		else
