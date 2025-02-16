@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:05:23 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/15 16:05:43 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/16 16:42:37 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
  */
 int	*stack_to_arr(t_stack *stack)
 {
-	int	*arr;
-	int	len;
-	int	i;
+	int		*arr;
+	int		len;
+	int		i;
 	t_node	*cur;
 
-	
 	len = lst_len(stack->top);
 	arr = malloc(sizeof(int) * len);
 	if (arr == NULL)
@@ -79,8 +78,8 @@ int	*sort_array(int *arr, int size)
 void	index_element_in_arr(int *arr, t_node *top)
 {
 	t_node	*cur;
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 
 	len = lst_len(top);
 	i = 0;
@@ -92,7 +91,7 @@ void	index_element_in_arr(int *arr, t_node *top)
 			if (cur->value == arr[i])
 			{
 				cur->index = i;
-				break;
+				break ;
 			}
 			cur = cur->next;
 		}

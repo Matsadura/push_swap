@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:25:35 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/15 21:11:27 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/16 16:38:54 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	**parse_args(int ac, char **av);
 int		is_only_space(char *arr);
 
 /* Stack Functions */
-int	lst_len(t_node *lst);
+int		lst_len(t_node *lst);
 void	fill_stack(t_stack *stack, char **args, char name);
 void	print_stack(t_stack stack);
 void	free_stack(t_stack stack);
@@ -51,8 +51,8 @@ void	swap(t_stack *stack, char name);
 void	rotate(t_stack *stack, char name);
 void	reverse_rotate(t_stack *stack, char name);
 void	sort_stacks(t_stack *stackA, t_stack *stackB);
-int	find_max_index(t_node *top);
-int	find_position(int max, t_stack *stackB);
+int		find_max_index(t_node *top);
+int		find_position(int max, t_stack *stackB);
 
 /* Large stack functions */
 void	fill_stack_b(t_stack *stackA, t_stack *stackB);
@@ -62,8 +62,8 @@ void	sort_b_to_a(t_stack *stackA, t_stack *stackB, int len);
 void	sort_large_stack(t_stack *stackA, t_stack *stackB);
 
 /* Array functions */
-int	*stack_to_arr(t_stack *stack);
-int	*sort_array(int *arr, int size);
+int		*stack_to_arr(t_stack *stack);
+int		*sort_array(int *arr, int size);
 void	index_element_in_arr(int *arr, t_node *top);
 
 /* Stack Operations */
@@ -89,5 +89,7 @@ void	only_2(t_stack *stackA);
 void	only_3(t_stack *stackA);
 void	only_4(t_stack *stackA, t_stack *stackB);
 void	only_5(t_stack *stackA, t_stack *stackB);
+
+t_node	*greater_index(t_stack *stack, int b_size);
 
 #endif /* PUSH_SWAP_H */
