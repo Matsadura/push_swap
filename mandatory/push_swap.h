@@ -91,5 +91,6 @@ void	only_4(t_stack *stackA, t_stack *stackB);
 void	only_5(t_stack *stackA, t_stack *stackB);
 
 t_node	*greater_index(t_stack *stack, int b_size);
+void	is_duplicate(t_stack *stack, t_node *top, t_node *node, char **args);
 
 #endif /* PUSH_SWAP_H */

@@ -12,18 +12,21 @@
 
 #include "push_swap_bonus.h"
 
-static void	free_and_exit(char *line, int fd)
+static void	free_and_exit(char *line, int fd, t_data vars)
 {
 	while (line != NULL)
 	{
 		free(line);
 		line = get_next_line(fd);
 	}
+	ft_free2d(vars.args);
+	free_stack(*(vars.s_a));
+	free_stack(*(vars.s_b));
 	ft_dprintf(2, "Error\n");
 	exit(1);
 }
 
-char	**read_ops(int fd)
+char	**read_ops(int fd, t_data vars)
 {
 	char	*line;
 	char	*tmp;
@@ -38,7 +41,7 @@ char	**read_ops(int fd)
 		if (line[0] == '\n')
 		{
 			free(tmp);
-			free_and_exit(line, fd);
+			free_and_exit(line, 0, vars);
 		}
 		tmp = ft_strjoin_gnl(tmp, line);
 		free(line);

@@ -35,6 +35,13 @@ typedef struct s_stack
 	char	name;
 }	t_stack;
 
+typedef struct s_data
+{
+	t_stack	*s_a;
+	t_stack	*s_b;
+	char	**args;
+}	t_data;
+
 /* Parsing */
 char	**parse_args(int ac, char **av);
 int		is_only_space(char *arr);
@@ -93,8 +100,10 @@ void	only_5(t_stack *stackA, t_stack *stackB);
 t_node	*greater_index(t_stack *stack, int b_size);
 
 /* Checker functions */
-char	**read_ops(int fd);
+char	**read_ops(int fd, t_data vars);
 int		all_valid_ops(char **ops);
 void	exec_ops(t_stack *stackA, t_stack *stackB, char **ops);
+
+void	is_duplicate(t_stack *stack, t_node *top, t_node *node, char **args);
 
 #endif /* PUSH_SWAP_BONUS_H */

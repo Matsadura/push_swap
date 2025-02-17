@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:50:23 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/13 10:50:50 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/17 16:05:44 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	fill_stack(t_stack *stack, char **args, char name)
 		new->position_b = 0;
 		new->below_line = 0;
 		new->next = NULL;
+		is_duplicate(stack, stack->top, new, args);
 		add_back(stack, new);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: zzaoui <zzaoui@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:27:01 by zzaoui            #+#    #+#             */
-/*   Updated: 2025/02/13 15:03:14 by zzaoui           ###   ########.fr       */
+/*   Updated: 2025/02/17 16:05:18 by zzaoui           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,24 @@ static void	is_greater_than_intmax(char **args)
  * is_duplicate - Checks if there is a duplicate element
  * @args: An array of arrays representing list of arguments
  */
-static void	is_duplicate(char **args)
+void	is_duplicate(t_stack *stack, t_node *top, t_node *node, char **args)
 {
-	int	i;
-	int	j;
+	t_node	*curr;
 
-	i = 0;
-	while (args[i] != NULL)
+	if (top == NULL)
+		return ;
+	curr = top;
+	while (curr != NULL)
 	{
-		j = i + 1;
-		while (args[j] != NULL)
+		if (curr->value == node->value)
 		{
-			if (ft_strcmp(args[i], args[j]) == 0)
-			{
-				ft_free2d(args);
-				ft_dprintf(STDERR, "Error\n");
-				exit(EXIT_FAILURE);
-			}
-			j++;
+			free(node);
+			ft_free2d(args);
+			free_stack(*(stack));
+			ft_dprintf(STDERR, "Error\n");
+			exit(1);
 		}
-		i++;
+		curr = curr->next;
 	}
 }
 
@@ -144,7 +142,6 @@ char	**parse_args(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	is_numerical(args);
-	is_duplicate(args);
 	is_greater_than_intmax(args);
 	return (args);
 }
