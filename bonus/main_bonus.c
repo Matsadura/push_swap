@@ -12,12 +12,20 @@
 
 #include "push_swap_bonus.h"
 
+static void	init_stack_b(t_stack *stackB)
+{
+	stackB->top = NULL;
+	stackB->size = 0;
+	stackB->name = 'b';
+}
+
 static void	cleanup(t_stack s_a, t_stack s_b, char **args, char **ops)
 {
 	free_stack(s_a);
 	free_stack(s_b);
 	ft_free2d(args);
-	ft_free2d(ops);
+	if (ops != NULL)
+		ft_free2d(ops);
 	exit(1);
 }
 
@@ -31,9 +39,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		args = parse_args(ac, av);
-		stack_b.top = NULL;
-		stack_b.size = 0;
-		stack_b.name = 'b';
+		init_stack_b(&stack_b);
 		fill_stack(&stack_a, args, 'a');
 		ops = read_ops(0);
 		if (all_valid_ops(ops) == TRUE)

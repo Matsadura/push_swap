@@ -53,6 +53,8 @@ int	all_valid_ops(char **ops)
 	int	i;
 
 	i = 0;
+	if (ops == NULL)
+		return (TRUE);
 	while (ops[i] != NULL)
 	{
 		if (is_valid_op(ops[i]) == FALSE)
@@ -92,6 +94,8 @@ void	exec_ops(t_stack *stackA, t_stack *stackB, char **ops)
 {
 	int	i;
 
+	if (ops == NULL || stackA == NULL || stackB == NULL)
+		return ;
 	i = 0;
 	while (ops[i] != NULL)
 	{

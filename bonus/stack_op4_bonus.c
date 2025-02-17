@@ -18,6 +18,8 @@
 void	rra(t_stack *stack, int alert)
 {
 	(void)alert;
+	if (stack->size <= 1)
+		return ;
 	reverse_rotate(stack, 'a');
 }
 
@@ -27,6 +29,8 @@ void	rra(t_stack *stack, int alert)
 void	rrb(t_stack *stack, int alert)
 {
 	(void)alert;
+	if (stack->size <= 1)
+		return ;
 	reverse_rotate(stack, 'b');
 }
 
