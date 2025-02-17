@@ -10,14 +10,16 @@ OBJECT_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(LIBFT)
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJECT) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJECT) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	make -C libft
 
-bonus: $(SRC_BONUS) $(LIBFT)
-	$(CC) $(CFLAGS) $(SRC_BONUS) $(LIBFT) -o $(NAME_BONUS)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJECT_BONUS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJECT_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
 clean:
 	rm -f $(OBJECT)
