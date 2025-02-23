@@ -26,7 +26,7 @@ static void	cleanup(t_stack s_a, t_stack s_b, char **args, char **ops)
 	ft_free2d(args);
 	if (ops != NULL)
 		ft_free2d(ops);
-	exit(1);
+	exit(0);
 }
 
 static void	wrapper(t_data vars)
